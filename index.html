@@ -18,54 +18,36 @@
     }
 
     .timeline {
-      position: relative;
-      max-width: 900px;
-      margin: 50px auto;
-      padding: 20px 0;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      overflow-x: auto;
+      padding: 40px;
+      white-space: nowrap;
     }
 
-    .timeline::after {
-      content: "";
+    .line {
       position: absolute;
-      width: 4px;
-      background-color: #333;
-      top: 0;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
+      height: 6px;
+      background: #007BFF;
+      top: 50%;
+      left: 0;
+      right: 0;
+      transform: translateY(-50%);
+      z-index: -1;
     }
 
     .event {
-      padding: 20px 30px;
+      display: inline-block;
       position: relative;
-      width: 50%;
     }
 
-    .event.left {
-      left: 0;
-    }
-
-    .event.right {
-      left: 50%;
-    }
-
-    .event::before {
-      content: "";
-      position: absolute;
-      top: 20px;
+    .event .dot {
       width: 20px;
       height: 20px;
-      background-color: #333;
+      background: #007BFF;
       border-radius: 50%;
-      z-index: 1;
-    }
-
-    .event.left::before {
-      right: -10px;
-    }
-
-    .event.right::before {
-      left: -10px;
+      margin: 0 auto 10px auto;
     }
 
     .card {
@@ -73,6 +55,8 @@
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      min-width: 200px;
+      text-align: center;
     }
   </style>
 </head>
@@ -80,11 +64,32 @@
   <h1>Mein Zeitstrahl</h1>
 
   <div class="timeline">
-    <div class="event left">
+    <div class="line"></div>
+
+    <div class="event">
+      <div class="dot"></div>
       <div class="card">
         <h3>2020</h3>
         <p>Hier steht ein Ereignis. Du kannst es anpassen.</p>
       </div>
+    </div>
+
+    <div class="event">
+      <div class="dot"></div>
+      <div class="card">
+        <h3>2022</h3>
+        <p>Noch ein Ereignis im Zeitstrahl.</p>
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="dot"></div>
+      <div class="card">
+        <h3>2024</h3>
+        <p>Beliebigen Text hinzufügen.</p>
+      </div>
+    </div>
+  </div>
     </div>
 
     <div class="event right">
